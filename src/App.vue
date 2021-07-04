@@ -1,50 +1,23 @@
 <template>
-  <img
-    alt="Vue logo"
-    src="./assets/logo.png"
-  >
-  <HelloWorld msg="Using Vuex 4 (beta + Vue 3.0) Modules in TypeScript!" />
-
-  <hr
-    id="quite-neat-divider"
-    color="white"
-  >
-
-  <h3>
-    {{ isClient ? 'User is Client' : (isAdmin ? 'User is Admin' : 'No clue who the heck...') }}
-  </h3>
-  <button @click="fetchDocuments()">
-    Fetch documents
-  </button>
+  <TilesPanel />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { mapGetters } from 'vuex';
-
 import { useStore } from '@/store';
-import { DocumentsActionTypes } from '@/store/modules/documents/action-types';
 
-import HelloWorld from '@/components/HelloWorld.vue';
+import TilesPanel from '@/components/TilesPanel.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld,
+    TilesPanel,
   },
   setup() {
     const store = useStore();
 
-    function fetchDocuments() {
-      try {
-        store.dispatch(DocumentsActionTypes.FETCH_DOCUMENTS, '1');
-      } catch (error) {
-        console.error('fetchDocuments', error);
-      }
-    }
-
     return {
-      fetchDocuments,
     };
   },
   computed: {
@@ -60,12 +33,7 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  padding-bottom: 50px;
-}
-
-#quite-neat-divider {
-  border-top: 3px dashed green;
-  margin: 60px 60px 50px;
+  margin: 0;
+  padding: 0;
 }
 </style>

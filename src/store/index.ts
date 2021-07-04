@@ -3,17 +3,13 @@ import createPersistedState from 'vuex-persistedstate';
 
 // TODO: How to surpass cyclical dependency linting errors cleanly?
 // eslint-disable-next-line import/no-cycle
-import { store as documents, DocumentsStore, State as DocumentsState } from '@/store/modules/documents';
-// eslint-disable-next-line import/no-cycle
-import { store as profile, ProfileStore, State as ProfileState } from '@/store/modules/profile';
+import { store as casino, CasinoStore, State as CasinoState } from '@/store/modules/casino';
 
 export type RootState = {
-  documents: DocumentsState;
-  profile: ProfileState;
+  casino: CasinoState;
 };
 
-export type Store = DocumentsStore<Pick<RootState, 'documents'>>
- & ProfileStore<Pick<RootState, 'profile'>>;
+export type Store = CasinoStore<Pick<RootState, 'casino'>>;
 
 // Plug in logger when in development environment
 const debug = process.env.NODE_ENV !== 'production';
@@ -25,8 +21,7 @@ plugins.push(createPersistedState({ storage: window.sessionStorage }));
 export const store = createStore({
   plugins,
   modules: {
-    documents,
-    profile,
+    casino,
   },
 });
 
