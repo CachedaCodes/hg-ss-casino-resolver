@@ -1,0 +1,21 @@
+$gap-row: 10px;
+$gap-column: 10px;
+
+$tile-width: 80px;
+$tile-height: 80px;
+
+$tile-font-size: 40px;
+$clue-font-size: 25px;
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

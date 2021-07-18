@@ -59,6 +59,7 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import '../styles/style.scss';
 @import '../styles/theme.scss';
 
 .tile {
@@ -68,8 +69,6 @@ export default defineComponent({
 
   background: $color-black;
   border: 8px solid $color-fair-green;
-  $tile-width: 80px;
-  $tile-height: 80px;
   $tile-input-gap: 6px;
   $assessed-input-border: 5px;
 
@@ -85,7 +84,7 @@ export default defineComponent({
     border: 0;
     padding: 0;
 
-    font-size: 40px;
+    font-size: $tile-font-size;
     text-align: center;
   }
 
@@ -115,18 +114,6 @@ export default defineComponent({
       background: $assessment-color-background-green;
       border: #{$assessed-input-border} solid $assessment-color-border-green;
     }
-  }
-
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  /* Firefox */
-  input[type=number] {
-    -moz-appearance: textfield;
   }
 }
 </style>

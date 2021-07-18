@@ -5,7 +5,7 @@
       :key="`row-${rowIndex}`"
       class="tiles-panel__row"
     >
-      <ul class="tiles-panel__tiles-wrapper">
+      <ul class="tiles-panel__row-tiles-wrapper">
         <li
           v-for="(tile, colIndex) in row"
           :key="`tile-${row}:${colIndex}`"
@@ -36,22 +36,26 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import '../styles/style.scss';
+
 .tiles-panel {
+  margin: 0 25px 25px 0;
+
   &, ul {
     list-style-type: none;
     padding: 0;
   }
 
   &__row {
-    margin-bottom: 10px
+    margin-bottom: $gap-row;
   }
 
-  &__tiles-wrapper {
+  &__row-tiles-wrapper {
     display: flex;
   }
 
   &__tile {
-    margin-right: 10px;
+    margin-right: $gap-column;
   }
 }
 </style>

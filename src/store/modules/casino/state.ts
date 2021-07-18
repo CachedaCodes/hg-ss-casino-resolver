@@ -1,4 +1,10 @@
-import { Tile, TilesMatrix } from '@/@types';
+import { Clue, Tile, TilesMatrix } from '@/@types';
+
+export type State = {
+  tilesMatrix: TilesMatrix;
+  cluesColumn: Clue[];
+  cluesRow: Clue[];
+}
 
 function generateNewTile(row: number, column: number): Tile {
   return {
@@ -25,10 +31,15 @@ function generateDefaultTilesMatrix(): TilesMatrix {
   return defaultTilesMatrix;
 }
 
-export type State = {
-  tilesMatrix: TilesMatrix;
+function generateCluesList(amount: number): Clue[] {
+  return Array(amount).fill({
+    prizeAmount: 0,
+    voltorbAmount: 0,
+  });
 }
 
 export const state: State = {
   tilesMatrix: generateDefaultTilesMatrix(),
+  cluesColumn: generateCluesList(5),
+  cluesRow: generateCluesList(5),
 };

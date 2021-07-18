@@ -9,3 +9,8 @@ export type Tile = {
 }
 
 export type TilesMatrix = Tile[][];
+
+export type Clue = {
+  prizeAmount: number,
+  voltorbAmount: number,
+}
